@@ -17,7 +17,7 @@ const Search: React.FC<SeachProps> = ({getQuote, isBusy, quote}) => {
   const [ticker, setTicker] = useState<string>("");
 
   const onChangeTikcer = (e: ChangeEvent<HTMLInputElement>) => {
-    setTicker(e.target.value);
+    setTicker(e.target.value.toUpperCase());
   };
 
   const onSearch = useCallback(() => {
@@ -32,7 +32,7 @@ const Search: React.FC<SeachProps> = ({getQuote, isBusy, quote}) => {
       </InputContainer>
       <DataContainer>
         {
-          Boolean(quote) && 
+          Boolean(quote) && quote.close !== 0 && !isBusy ? 
           <>
             <DataItem isPrimary>{quote.symbol}</DataItem>
             <DataItem isPrimary>{quote.close}</DataItem>
@@ -43,15 +43,10 @@ const Search: React.FC<SeachProps> = ({getQuote, isBusy, quote}) => {
               {difference}
             </DataItem>
             <DataItem>{date}</DataItem> 
-          </>
+          </> :
+           <DataItem isPrimary>{isBusy ? "Loading..." : "Nothing"}</DataItem>
         }
       </DataContainer>
-      {
-        isBusy && 
-        <Typography.Title>
-          Loading...
-        </Typography.Title>
-      }
     </Container>
   )
 }

@@ -1,6 +1,5 @@
 FROM node:18 as build
 WORKDIR /app
-ARG api_url
 COPY ./packages/front/package.json /app/
 RUN npm install
 COPY ./packages/front/ /app/
