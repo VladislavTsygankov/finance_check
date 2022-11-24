@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Vlad Tsygankov <tsygan-97@mail.ru>",
+  "homepage": "https://github.com/VladislavTsygankov/finance_check/tree/main/packages/backend#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladislavTsygankov/finance_check.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prod": "tsc && node dist/index.js",
+    "dev": "nodemon -L",
+    "test": "node ./__tests__/backend.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/VladislavTsygankov/finance_check/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/pino": "^7.0.5",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.2.0",
+    "@sinclair/typebox": "^0.25.9",
+    "@stoqey/finnhub": "^0.3.4",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.10.2",
+    "fastify-plugin": "^4.3.0",
+    "moment": "^2.29.4",
+    "pino": "^8.7.0"
+  }
+}

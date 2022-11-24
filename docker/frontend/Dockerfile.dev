@@ -1,0 +1,7 @@
+FROM node:18
+WORKDIR /app
+COPY ./packages/front/package.json /app/
+RUN npm install
+COPY ./packages/front/ /app/
+EXPOSE 8000
+CMD [ "npm", "run", "start" ]

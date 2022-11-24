@@ -1,0 +1,30 @@
+version: "3.5"
+
+services:
+  backend:
+    container_name: backend
+    build: 
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    restart: always
+    environment:
+      - FINNHUB_API_KEY=bv4mnbf48v6qpate9n30
+    ports:
+      - 4000:4000
+    volumes:
+      - /app/node_modules
+      - ./packages/backend:/app/
+
+  front:
+    container_name: front
+    build: 
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile.dev
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /app/node_modules
+      - ./packages/front:/app/
+
+volumes: {}
